@@ -40,6 +40,8 @@ make %{?_smp_mflags}
 # Install
 %install
 make install DESTDIR=$RPM_BUILD_ROOT
+rm $RPM_BUILD_ROOT/%{_libdir}/libecap.a
+rm $RPM_BUILD_ROOT/%{_libdir}/libecap.la
 
 # Clean-up
 %clean
@@ -61,8 +63,6 @@ make install DESTDIR=$RPM_BUILD_ROOT
 # Developer files
 %files devel
 %defattr(-,root,root)
-%{_libdir}/libecap.a
-%{_libdir}/libecap.la
 %{_includedir}/libecap
 
 # vi: expandtab shiftwidth=4 softtabstop=4 tabstop=4
